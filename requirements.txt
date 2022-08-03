@@ -1,0 +1,2 @@
+pyclowder==2.6.0
+opencv-python-headless
