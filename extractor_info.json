@@ -1,0 +1,37 @@
+{
+  "@context": "http://clowder.ncsa.illinois.edu/contexts/extractors.jsonld",
+  "name": "aifarms.coco",
+  "version": "1.0.0",
+  "description": "Extractor coco annotations",
+  "author": "Ana Lucic <alucic2@illinois.edu>",
+  "contributors": [
+    "Rob Kooper <kooper@illinois.edu>"
+  ],
+  "contexts": [],
+  "repository": [
+    {
+      "repType": "git",
+      "repUrl": "https://github.com/AIFARMS/extractor-coco"
+    },
+    {
+      "repType": "docker",
+      "repUrl": "aifarms/extractors-coco"
+    }
+  ],
+  "process": {
+    "dataset": [
+      "file.added"
+    ]
+  },
+  "external_services": [],
+  "dependencies": [
+  ],
+  "bibtex": [],
+  "categories": [
+    "EXTRACT"
+  ],
+  "labels": [
+    "Type/Image",
+    "Domain/AI"
+  ]
+}
