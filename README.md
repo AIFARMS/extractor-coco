@@ -1,4 +1,4 @@
 # extractor-coco
-### The extractor-coco displays the annotated image that is annotated using Coco format. The extractor assumes that there is a folder of images and a Coco formatted JSON annotation file in the same directory. If the extractor is enabled in Clowder, upon upload of the folder of images with the Coco formatted annotatation file, the images would get annotated and can get previewed through the Preview function. 
+The extractor runs on a folder of images that also contains, in the same directory, a COCO JSON annotation file.The extractor-coco displays the images overlaid with COCO JSON formated annotations. Currently, the extractor supports bounding box annotations. COCO JSON was chosen because it is a common format for object detection tasks and a suitable format for converting from and to: https://roboflow.com/formats/coco-json 
 ### Modifying the color of annotations
-The color of the annotations can be modified through the parameter... 
+The color of the annotations and the thickness of the line can be modified by changing the parameter ... 
