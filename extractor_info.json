@@ -1,7 +1,7 @@
 {
   "@context": "http://clowder.ncsa.illinois.edu/contexts/extractors.jsonld",
   "name": "aifarms.coco",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Extractor coco annotations",
   "author": "Ana Lucic <alucic2@illinois.edu>",
   "contributors": [
@@ -33,5 +33,32 @@
   "labels": [
     "Type/Image",
     "Domain/AI"
-  ]
+  ],
+  "parameters": {
+    "schema": {
+      "color": {
+        "type": "string",
+        "title": "bounding box color",
+        "default": "#8b008b"
+      },
+      "width": {
+        "type": "integer",
+        "title": "bounding box width",
+        "default": 5,
+        "minimum": 1,
+        "maximum": 20
+      }
+    },
+    "form": [
+      {
+        "key": "color"
+      },
+      {
+        "key": "width",
+        "type": "range",
+        "step": 1,
+        "indicator": true
+      }
+    ]
+  }
 }

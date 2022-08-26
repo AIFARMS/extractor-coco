@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import logging
+from re import U
 import tempfile
 import os
 import json
@@ -12,7 +13,7 @@ import pyclowder.files
 import pyclowder.datasets
 
 import cv2
-
+import webcolors
 
 # This class prepares and runs the coco extractor code in the Clowder environment
 class CocoAnnotation(Extractor):
@@ -39,6 +40,13 @@ class CocoAnnotation(Extractor):
     # Prepares the environment for Open Drone Map by linking to image files and
     # checking settings for overrides. Also uploads the results of the run
     def process_message(self, connector, host, secret_key, resource, parameters):
+        if not parameters.get("parameters", ""):
+            user_params = {}
+        else:
+            user_params = json.loads(parameters["parameters"])
+        rgb = webcolors.name_to_rgb(user_params.get("color", "purple"))
+        width = int(user_params.get("width", "5"))
+
         annotation_file = None
         for localfile in resource['local_paths']:
             if localfile.lower().endswith('.coco.json'):
@@ -75,7 +83,7 @@ class CocoAnnotation(Extractor):
                     w = int(a['bbox'][2])
                     h = int(a['bbox'][3])
                     #add a rectangle to the image based on the bounding box coordinates
-                    img = cv2.rectangle(img,(x,y),(x+w,y+h), (139,0,139), 9)
+                    img = cv2.rectangle(img,(x,y),(x+w,y+h), rgb, width)
                     #write the images with annotations overlaid to the created folder
 
                 handle, outfile = tempfile.mkstemp(suffix=".jpg")
