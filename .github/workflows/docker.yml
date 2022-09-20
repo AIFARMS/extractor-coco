@@ -74,14 +74,15 @@ jobs:
           fi
 
           # create a list of all images to be pushed
-          REPO=${GITHUB_REPOSITORY,,}
+          OWNER=${GITHUB_REPOSITORY_OWNER,,}
           IMAGE="${{ github.event.repository.name }}"
+          IMAGE="${IMAGE,,}"
           IMAGES=""
           for tag in ${tags}; do
             if [ "$DOCKERHUB_PUSH" == "true" ]; then
               IMAGES="${IMAGES}${{ env.DOCKERHUB_ORG }}/${IMAGE}:${tag},"
             fi
-            IMAGES="${IMAGES}ghcr.io/${REPO}/${IMAGE}:${tag},"
+            IMAGES="${IMAGES}ghcr.io/${OWNER}/${IMAGE}:${tag},"
           done
           IMAGES="${IMAGES%,*}"
 
