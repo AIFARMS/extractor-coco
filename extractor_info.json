@@ -1,7 +1,7 @@
 {
   "@context": "http://clowder.ncsa.illinois.edu/contexts/extractors.jsonld",
   "name": "aifarms.coco",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Extractor coco annotations",
   "author": "Ana Lucic <alucic2@illinois.edu>",
   "contributors": [
